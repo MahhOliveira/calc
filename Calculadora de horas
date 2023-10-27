@@ -1,0 +1,47 @@
+//calculadora de horas em Java:
+
+java
+import java.util.Scanner;
+
+public class CalculadoraDeHoras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite a primeira hora (hh:mm:ss): ");
+        String primeiraHoraString = scanner.nextLine();
+        String[] primeiraHoraArray = primeiraHoraString.split(":");
+
+        System.out.print("Digite a segunda hora (hh:mm:ss): ");
+        String segundaHoraString = scanner.nextLine();
+        String[] segundaHoraArray = segundaHoraString.split(":");
+
+        int primeiraHora = Integer.parseInt(primeiraHoraArray[0]);
+        int primeiraMinuto = Integer.parseInt(primeiraHoraArray[1]);
+        int primeiraSegundo = Integer.parseInt(primeiraHoraArray[2]);
+
+        int segundaHora = Integer.parseInt(segundaHoraArray[0]);
+        int segundaMinuto = Integer.parseInt(segundaHoraArray[1]);
+        int segundaSegundo = Integer.parseInt(segundaHoraArray[2]);
+
+        int diferencaHoras = segundaHora - primeiraHora;
+        int diferencaMinutos = segundaMinuto - primeiraMinuto;
+        int diferencaSegundos = segundaSegundo - primeiraSegundo;
+
+        if (diferencaSegundos < 0) {
+            diferencaMinutos--;
+            diferencaSegundos += 60;
+        }
+
+        if (diferencaMinutos < 0) {
+            diferencaHoras--;
+            diferencaMinutos += 60;
+        }
+
+        System.out.println("Diferença de horas: " + diferencaHoras + ":" + diferencaMinutos + ":" + diferencaSegundos);
+
+        scanner.close();
+    }
+}
+
+
+//Este código solicita ao usuário que digite duas horas no formato "hh:mm:ss", divide-as em horas, minutos e segundos e calcula a diferença entre elas. Em seguida, exibe a diferença de horas no formato "hh:mm:ss".///
